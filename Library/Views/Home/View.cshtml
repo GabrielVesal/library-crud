@@ -1,0 +1,33 @@
+﻿@model LogicLibrary.Models.Book
+
+@{
+    ViewBag.Title = "View book";
+}
+
+<form>
+    <div class="form-group">
+        <input asp-for="Title" placeholder="Title" class="form-control" />
+        <br />
+    </div>
+    <div class="form-group">
+        <input asp-for="Author" placeholder="Author" class="form-control" />
+        <br />
+    </div>
+    <div class="form-group">
+        <input asp-for="Description" placeholder="Description" class="form-control" />
+        <br />
+    </div>
+    <div class="form-group">
+        <input asp-for="Category" placeholder="Category" class="form-control" />
+        <br />
+    </div>
+    <div class="form-group">
+        <input asp-for="Language" placeholder="Language" class="form-control" />
+        <br />
+    </div>
+    <div class="form-group">
+        <input asp-for="Url" placeholder="Url" class="form-control" />
+        <br />
+    </div>
+</form>
+<a asp-action="Index" class="btn btn-secondary">Back to home</a>

@@ -1,0 +1,11 @@
+C:\Users\gatal\source\repos\Library\LogicLibrary\bin\Debug\net9.0\LogicLibrary.deps.json
+C:\Users\gatal\source\repos\Library\LogicLibrary\bin\Debug\net9.0\LogicLibrary.dll
+C:\Users\gatal\source\repos\Library\LogicLibrary\bin\Debug\net9.0\LogicLibrary.pdb
+C:\Users\gatal\source\repos\Library\LogicLibrary\obj\Debug\net9.0\LogicLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gatal\source\repos\Library\LogicLibrary\obj\Debug\net9.0\LogicLibrary.AssemblyInfoInputs.cache
+C:\Users\gatal\source\repos\Library\LogicLibrary\obj\Debug\net9.0\LogicLibrary.AssemblyInfo.cs
+C:\Users\gatal\source\repos\Library\LogicLibrary\obj\Debug\net9.0\LogicLibrary.csproj.CoreCompileInputs.cache
+C:\Users\gatal\source\repos\Library\LogicLibrary\obj\Debug\net9.0\LogicLibrary.dll
+C:\Users\gatal\source\repos\Library\LogicLibrary\obj\Debug\net9.0\refint\LogicLibrary.dll
+C:\Users\gatal\source\repos\Library\LogicLibrary\obj\Debug\net9.0\LogicLibrary.pdb
+C:\Users\gatal\source\repos\Library\LogicLibrary\obj\Debug\net9.0\ref\LogicLibrary.dll
