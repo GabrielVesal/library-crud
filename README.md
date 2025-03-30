@@ -33,7 +33,7 @@ Library/
 │-- wwwroot/
 │-- Startup.cs
 │-- Program.cs
-|-- Bookks.json
+|-- Books.json
 LogicLibrary/
 │-- Models/
 │   ├── Book.cs
