@@ -17,30 +17,97 @@ Este é um projeto simples de CRUD (Create, Read, Update, Delete) para gerenciam
 - Visualizar detalhes de um livro
 - Remover um livro da lista
 
-## Estrutura do Projeto
+## Diagrama do Projeto
+```mermaid
+flowchart TD
+    %% Client Side
+    subgraph "Client Side"
+        Browser["Browser"]:::ui
+    end
+
+    %% Server Side
+    subgraph "Server Side"
+        subgraph "Web App (Library)"
+            Program["ASP.NET Core Entry Point\n(Program.cs)"]:::server
+            Middleware["Static File Middleware"]:::server
+            Routing["MVC Routing"]:::server
+            Controller["HomeController"]:::server
+            Views["Razor Views"]:::ui
+            Assets["wwwroot assets"]:::ui
+            CSS["site.css"]:::ui
+            JS["site.js"]:::ui
+            Shared["Shared Layouts & Partials"]:::ui
+            ErrorModel["ErrorViewModel"]:::server
+            AppSettings["appsettings.json &\nappsettings.Development.json"]:::server
+            LibraryProj["Library.csproj"]:::server
+
+            Browser -->|HTTP GET/POST| Program
+            Program -->|configure pipeline| Middleware
+            Middleware -->|route/static| Routing
+            Routing -->|invoke| Controller
+            Controller -->|renders| Views
+            Views -->|HTML Response| Browser
+            Controller -->|uses| BookManager
+            Middleware -->|serves| Assets
+            Assets -->|includes| CSS
+            Assets -->|includes| JS
+            Assets -->|uses| Shared
+            Middleware -->|serves error| ErrorModel
+            Program -->|loads config| AppSettings
+        end
+
+        subgraph "Class Library (LogicLibrary)"
+            BookManager["BookManager Service"]:::server
+            BookModel["Book Domain Model"]:::server
+            LogicProj["LogicLibrary.csproj"]:::server
+
+            BookManager -->|manages| BookModel
+        end
+    end
+
+    %% Data Layer
+    subgraph "Data Layer"
+        BooksJson["Books.json Data Store"]:::data
+        BookManager -->|reads/writes| BooksJson
+        BooksJson -->|returns JSON| BookManager
+    end
+
+    %% External Frameworks & Libraries
+    subgraph "External Frameworks"
+        DotNet[".NET 9.0 Runtime"]:::ext
+        Bootstrap["Bootstrap Library"]:::ext
+        jQuery["jQuery & Validation"]:::ext
+
+        DotNet --> Program
+        Bootstrap --> Assets
+        jQuery --> Assets
+    end
+
+    %% Click Events
+    click Program "https://github.com/gabrielvesal/library-crud/blob/main/Library/Program.cs"
+    click Assets "https://github.com/gabrielvesal/library-crud/tree/main/Library/wwwroot/"
+    click CSS "https://github.com/gabrielvesal/library-crud/blob/main/Library/wwwroot/css/site.css"
+    click JS "https://github.com/gabrielvesal/library-crud/blob/main/Library/wwwroot/js/site.js"
+    click Bootstrap "https://github.com/gabrielvesal/library-crud/tree/main/Library/wwwroot/lib/bootstrap/"
+    click jQuery "https://github.com/gabrielvesal/library-crud/tree/main/Library/wwwroot/lib/jquery/"
+    click Controller "https://github.com/gabrielvesal/library-crud/blob/main/Library/Controllers/HomeController.cs"
+    click Views "https://github.com/gabrielvesal/library-crud/tree/main/Library/Views/Home/"
+    click Shared "https://github.com/gabrielvesal/library-crud/tree/main/Library/Views/Shared/"
+    click ErrorModel "https://github.com/gabrielvesal/library-crud/blob/main/Library/Models/ErrorViewModel.cs"
+    click AppSettings "https://github.com/gabrielvesal/library-crud/blob/main/Library/appsettings.json"
+    click BooksJson "https://github.com/gabrielvesal/library-crud/blob/main/Library/Books.json"
+    click BookManager "https://github.com/gabrielvesal/library-crud/blob/main/LogicLibrary/Services/BookManager.cs"
+    click BookModel "https://github.com/gabrielvesal/library-crud/blob/main/LogicLibrary/Models/Book.cs"
+    click LogicProj "https://github.com/gabrielvesal/library-crud/blob/main/LogicLibrary/LogicLibrary.csproj"
+    click LibraryProj "https://github.com/gabrielvesal/library-crud/blob/main/Library/Library.csproj"
+
+    %% Styles
+    classDef ui fill:#cce5ff,stroke:#0066cc
+    classDef server fill:#d4edda,stroke:#155724
+    classDef data fill:#fff3cd,stroke:#856404
+    classDef ext fill:#e2e3e5,stroke:#6c757d
 
 ```
-Library/
-│-- Controllers/
-│   ├── HomeController.cs
-│-- Views/
-│   ├── Home/
-│       ├── Index.cshtml
-│       ├── Add.cshtml
-│       ├── Edit.cshtml
-│       ├── View.cshtml
-│       ├── Remove.cshtml
-│-- wwwroot/
-│-- Startup.cs
-│-- Program.cs
-|-- Books.json
-LogicLibrary/
-│-- Models/
-│   ├── Book.cs
-│-- Services/
-│   ├── BookManager/
-```
-
 ## Instalação e Execução
 
 1. Clone o repositório:
